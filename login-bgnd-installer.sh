@@ -8,6 +8,11 @@ if [ $UID -ne 0 ]; then
 	exit 1
 fi
 
+if [ ! -d "/etc/lightdm" ]; then
+	echo "[-] Missing /etc/lightdm. Aborted" >&2
+	exit 1
+fi
+
 LOGINBGNDSH="login-bgnd.sh"
 if [ ! -r "$LOGINBGNDSH" ]; then
 	echo "[-] Missing $LOGINBGNDSH script. Aborted" >&2
